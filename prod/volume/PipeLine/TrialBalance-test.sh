@@ -377,7 +377,6 @@ then # if/then branch
   printf "\n$script result=$result"
 fi
 
-
 # # # reset variables
 # # em=""
 # # emline=""
