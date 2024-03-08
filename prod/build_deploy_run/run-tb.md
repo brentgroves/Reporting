@@ -1,5 +1,8 @@
 # **Format of file name**
 
+## Note call to web service did not work until I stopped the MSSQL Server docker container
+
+TB-202302_to_202402_on_03-08_DM
 TB-202301_to_202401_on_02-09_DM
 TB-202301_to_202401_on_02-08B_DM
 TB-202301_to_202401_on_02-08_DM
@@ -61,6 +64,7 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 ```bash
 pushd ~/src/Reporting/prod/volume/PipeLine
 
+TB-202302_to_202402_on_03-08_DM
 TB-202301_to_202401_on_02-12_DM
 TB-202301_to_202401_on_02-09_DM
 TB-202301_to_202401_on_02-08B_DM
@@ -84,7 +88,7 @@ conda activate reports
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202301" "202401" 0 "once"
+./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202302" "202402" 0 "once"
 
 ```
 
