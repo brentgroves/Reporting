@@ -44,7 +44,10 @@ spec:
       containers:
       - env:
         - name: MYSQL_ROOT_PASSWORD
-          value: password
+          valueFrom:
+            secretKeyRef:
+              key: password3
+              name: lastpass
         - name: TZ
           value: America/Fort_Wayne
         image: brentgroves/mysql:8.0

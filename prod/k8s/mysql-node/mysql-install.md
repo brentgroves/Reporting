@@ -1,7 +1,7 @@
 <https://livebook.manning.com/book/kubernetes-in-action/chapter-10/7>
 <https://www.howtoforge.com/create-a-statefulset-in-kubernetes/>
 
-kubectl delete svc mysql-reports32-svc
+kubectl delete svc mysql-reports31-svc
 kubectl delete statefulset mysql-reports31
 kubectl delete pvc mysql-reports11-pvc
 kubectl delete pv mysql-reports31-pv
@@ -11,6 +11,9 @@ kubectl delete pv mysql-reports31-pv
 ssh brent@reports31
 
 # make the database and backup directory
+
+sudo mkdir /mnt/data
+sudo chmod 777 /mnt/data
 
 sudo mkdir /mnt/mysql
 sudo chmod 777 /mnt/mysql
@@ -38,7 +41,7 @@ mysqldump -u root -p -h reports31 --port=30031 --column-statistics=0 --add-drop-
 # restore datbases from a backup
 
 mysql -u root -p -h reports31 --port=30031 < ~/backups/db/2022-11-29-13:47:12.sql.bak
-
+mysql -u root -p -h reports31 --port=30031 < ~/backups/reports31/mysql/2023-10-19-17:29:22.sql.bak
 pushd ~/src/Reporting/prod/k8s/mysql-node/
 
 # Create a StorageClass

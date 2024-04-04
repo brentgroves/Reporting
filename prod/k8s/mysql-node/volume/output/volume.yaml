@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   labels:
     type: local
-  name: mysql-reports33-pv
+  name: mysql-reports31-pv
 spec:
   accessModes:
   - ReadWriteOnce
@@ -18,7 +18,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - reports33
+          - reports31
   persistentVolumeReclaimPolicy: Retain
   storageClassName: mysql-storageclass
   volumeMode: Filesystem
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-reports33-pvc
+  name: mysql-reports31-pvc
 spec:
   accessModes:
   - ReadWriteOnce
