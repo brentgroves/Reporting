@@ -298,7 +298,7 @@ tm=""
 # # line=""
 # # tm=""
 
-# # # set pcn
+# # # set pcnen
 # # pcn=300758
 
 # # if [[ $result -eq 0 ]]
