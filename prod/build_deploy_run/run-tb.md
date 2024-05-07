@@ -1,7 +1,15 @@
-# **Format of file name**
+# Issue
+
+Timeout issue with the "AccountActivitySummaryGetOpenPeriodRange"
+SOAP web service script.
+20240507:
+open-period range was 202403 to 202405. It worked on 202403 and 202404 but failed on 202405 the active period.
+
+## **Format of file name**
 
 ## Note call to web service did not work until I stopped the MSSQL Server docker container
 
+TB-202304_to_202404_on_05-07_DM
 TB-202303_to_202403_on_04-05_DM
 TB-202302_to_202402_on_03-08_DM
 TB-202301_to_202401_on_02-09_DM
@@ -64,6 +72,8 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 
 ```bash
 pushd ~/src/Reporting/prod/volume/PipeLine
+
+TB-202304_to_202404_on_05-07_DM
 TB-202303_to_202403_on_04-05_DM
 TB-202302_to_202402_on_03-08_DM
 TB-202301_to_202401_on_02-12_DM
@@ -89,7 +99,7 @@ conda activate reports
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202303" "202403" 0 "once"
+./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202304" "202404" 0 "once"
 
 ```
 
