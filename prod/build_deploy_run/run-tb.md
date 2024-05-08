@@ -3,12 +3,13 @@
 Timeout issue with the "AccountActivitySummaryGetOpenPeriodRange"
 SOAP web service script.
 20240507:
-open-period range was 202403 to 202405. It worked on 202403 and 202404 but failed on 202405 the active period.
+open-period range was 202403 to 202405. It worked on 202403 and 202404 but failed on 202405 the active period. I shutdown all apps on my dev system and ran again with no error. There maybe an issue when more than 2 Plex SOAP web services are called one after another.
 
 ## **Format of file name**
 
 ## Note call to web service did not work until I stopped the MSSQL Server docker container
 
+TB-202304_to_202404_on_05-08_DM
 TB-202304_to_202404_on_05-07_DM
 TB-202303_to_202403_on_04-05_DM
 TB-202302_to_202402_on_03-08_DM
@@ -72,7 +73,7 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 
 ```bash
 pushd ~/src/Reporting/prod/volume/PipeLine
-
+TB-202304_to_202404_on_05-08_DM
 TB-202304_to_202404_on_05-07_DM
 TB-202303_to_202403_on_04-05_DM
 TB-202302_to_202402_on_03-08_DM
