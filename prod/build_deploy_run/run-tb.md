@@ -1,14 +1,39 @@
-# Issue
+# Linamar change notes
+
+From Alb-utl Download the TRIALBALANCE report from plex and import it into the DW
+Run Power BI report from Alb-utl4.
+
+## Idea
+
+/*
+
+* Try to find any new accounts by comparing Plex.account_period_balance to Plex.accounting_account_year_category_type
+* after the AccountingYearCategoryType.sh script and before the AccountPeriodBalanceRecreatePeriodRange.sh script
+ */
+
+select top 10 b.pcn,b.account_no, c.pcn,c.[year],c.account_no
+from Plex.accounting_account_year_category_type c
+left outer join Plex.account_period_balance b
+on c.pcn = b.pcn
+and c.account_no = b.account_no
+where c.pcn = 123681 -- 23,063
+and c.[year] = 2024
+order by b.pcn
+
+## Issue
 
 Timeout issue with the "AccountActivitySummaryGetOpenPeriodRange"
 SOAP web service script.
 20240507:
-open-period range was 202403 to 202405. It worked on 202403 and 202404 but failed on 202405 the active period. I shutdown all apps on my dev system and ran again with no error. There maybe an issue when more than 2 Plex SOAP web services are called one after another.
+open-period range was 202403 to 202405. It worked on 202403 and 202404 but failed on 202405 the active period. I shutdown all apps on my dev system and ran again with no error. There maybe an issue when more than 2 Plex SOAP web services are called one after another. Or there maybe some issue with running the scripts while memory resources are low.
 
 ## **Format of file name**
 
 ## Note call to web service did not work until I stopped the MSSQL Server docker container
 
+"Heather Luttrell" <Heather.Luttrell@Linamar.com>
+
+TB-202306_to_202406_on_07-07_DM_HL
 TB-202305_to_202405_on_06-07_DM
 TB-202304_to_202404_on_05-08_DM
 TB-202304_to_202404_on_05-07_DM
@@ -74,6 +99,8 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 
 ```bash
 pushd ~/src/Reporting/prod/volume/PipeLine
+
+TB-202306_to_202406_on_07-07_DM_HL
 TB-202305_to_202405_on_06-07_DM
 TB-202304_to_202404_on_05-08_DM
 TB-202304_to_202404_on_05-07_DM
@@ -102,7 +129,7 @@ conda activate reports
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202305" "202405" 0 "once"
+./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202306" "202406" 0 "once"
 
 ```
 
@@ -119,6 +146,8 @@ follow steps
 * with start_period_update = 0 so all the balance records will be
 * pulled from Plex everytime.
  */
+ TB-202306_to_202406_on_07-07_DM_HL
+
 TB-202211_to_202311_on_12-12_DM_LR_JS
 TB-202211_to_202311_on_12-08_DM_LR_JS
 TB-202207_to_202307_on_08-24_DM
@@ -133,12 +162,12 @@ export start_period_update=$5
 export frequency=$5
 ./TrialBalance-test.sh TB <bgroves@buschegroup.com> 202203 202303 0 once
 
-# Update MySQL Trialbalance table with Plex CSV
+## Update MySQL Trialbalance table with Plex CSV
 
 Still working on this CsvToTrialBalanceMultiLevel script. Delete and inserts are working so next pass start_period and end_period to shell script. Copy Trial_Balance to ~/src/Reporting directory for now.
 It looks like it inserts the records ok now I need to delete the periods in the table before inserting the new records.
 
-# From Alb-utl Download the TRIALBALANCE report from plex and import it into the DW
+## From Alb-utl Download the TRIALBALANCE report from plex and import it into the DW
 
 goto azure_account_period_balance_validate.sql
 /*
@@ -169,11 +198,18 @@ goto azure_account_period_balance_validate.sql
 * 03-02-2023: Pulled 202212 to 202301
  */
 
-Thank you Father for the peace that you have given me in pain and sorrow!
+Thank you Father for the peace that you have given me in troubles, pain, and sorrow!
 
-From teams run the TB report and export it for the requested period range using date format 202210.
+## run TB report
+
+Run TB report, trial_balance.rdl, from any Windows machine with the Power BI report builder installed. Use YYYYMM format for period range parameters.
+
+go to ~/src/secrets/namespaces/credentials
+and use username2/password2 to authenticate.
 
 **Format of file name**
+TB-202306_to_202406_on_07-07_DM_HL
+
 TB-202301_to_202401_on_02-12_DM
 TB-202301_to_202401_on_02-09_DM
 TB-202301_to_202401_on_02-08B_DM
