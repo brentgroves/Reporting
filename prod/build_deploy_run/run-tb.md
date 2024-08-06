@@ -33,6 +33,7 @@ open-period range was 202403 to 202405. It worked on 202403 and 202404 but faile
 
 "Heather Luttrell" <Heather.Luttrell@Linamar.com>
 
+TB-202307_to_202407_on_08-08_DM
 TB-202306_to_202406_on_07-07_DM_HL
 TB-202305_to_202405_on_06-07_DM
 TB-202304_to_202404_on_05-08_DM
@@ -100,6 +101,7 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 ```bash
 pushd ~/src/Reporting/prod/volume/PipeLine
 
+TB-202307_to_202407_on_08-08_DM
 TB-202306_to_202406_on_07-07_DM_HL
 TB-202305_to_202405_on_06-07_DM
 TB-202304_to_202404_on_05-08_DM
@@ -124,12 +126,31 @@ TB-202209_to_202309_on_10-24_DM_GP
 TB-202209_to_202309_on_10-18_DM_GP
 
 conda activate reports
+```
+
+## How to Install a Virtual Environment using Venv
+
+Virtualenv is a tool to set up your Python environments. Since Python 3.3, a subset of it has been integrated into the standard library under the venv module. You can install venv to your host Python by running this command in your terminal:
+
+pip install virtualenv
+To use venv in your project, in your terminal, create a new project folder, cd to the project folder in your terminal, and run the following command:
+
+```bash
+# add env/ folder to gitignore
+conda deactivate
+pushd .
+cd ~//src/Reporting/prod/volume/PipeLine
+# python3.8 -m venv env if multiple versions of python are installed using deadsnakes ppa
+python3 -m venv env
+source env/bin/activate
+pip install pyodbc
+```
 
 # usage ./TrialBalance-test.sh "TB" "<bgroves@buschegroup.com>" "202201" "202301" 0 "once"
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202306" "202406" 0 "once"
+./TrialBalance-test.sh "TB" "<bgroves@buschegroup.com>" "202307" "202407" 0 "once"
 
 ```
 
