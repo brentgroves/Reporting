@@ -139,7 +139,7 @@ To use venv in your project, in your terminal, create a new project folder, cd t
 # add env/ folder to gitignore
 conda deactivate
 pushd .
-cd ~//src/Reporting/prod/volume/PipeLine
+cd ~/src/Reporting/prod/volume/PipeLine
 # python3.8 -m venv env if multiple versions of python are installed using deadsnakes ppa
 python3 -m venv env
 source env/bin/activate
