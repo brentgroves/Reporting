@@ -128,7 +128,7 @@ TB-202209_to_202309_on_10-18_DM_GP
 conda activate reports
 ```
 
-## How to Install a Virtual Environment using Venv
+## How to Install a Virtual Environment using Venv (USE CONDA TEST ONLY)
 
 Virtualenv is a tool to set up your Python environments. Since Python 3.3, a subset of it has been integrated into the standard library under the venv module. You can install venv to your host Python by running this command in your terminal:
 
@@ -146,6 +146,7 @@ source env/bin/activate
 pip install pyodbc
 ```
 
+```bash
 # usage ./TrialBalance-test.sh "TB" "<bgroves@buschegroup.com>" "202201" "202301" 0 "once"
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
