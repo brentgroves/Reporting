@@ -234,6 +234,8 @@ go to ~/src/secrets/namespaces/credentials
 and use username2/password2 to authenticate.
 
 **Format of file name**
+TB-202308_to_202408_on_09-06_DM
+
 TB-202306_to_202406_on_07-07_DM_HL
 
 TB-202301_to_202401_on_02-12_DM
