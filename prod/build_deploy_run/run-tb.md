@@ -33,6 +33,7 @@ open-period range was 202403 to 202405. It worked on 202403 and 202404 but faile
 
 "Heather Luttrell" <Heather.Luttrell@Linamar.com>
 
+TB-202308_to_202408_on_09-06_DM
 TB-202307_to_202407_on_08-08_DM
 TB-202306_to_202406_on_07-07_DM_HL
 TB-202305_to_202405_on_06-07_DM
@@ -64,7 +65,8 @@ TB-202209_to_202309_on_10-10_GP
 ## install lastpass in k8s and on dev system
 
 ```bash
-pushd ~/src/Reporting/prod/k8s/secrets/lastpass
+pushd .. 
+cd ~/src/Reporting/prod/k8s/secrets/lastpass
 ./print-etc-lastpass.sh
 mysql_host=$1
 mysql_port=$2
@@ -99,8 +101,11 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 ## run trial balance scripts
 
 ```bash
-pushd ~/src/Reporting/prod/volume/PipeLine
+pushd .
+cd ~/src/Reporting/prod/volume/PipeLine
 
+TB-202308_to_202408_on_09-06_DM
+TB-202407_to_202407_on_08-08_DM
 TB-202307_to_202407_on_08-08_DM
 TB-202306_to_202406_on_07-07_DM_HL
 TB-202305_to_202405_on_06-07_DM
@@ -151,9 +156,7 @@ pip install pyodbc
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "<bgroves@buschegroup.com>" "202307" "202407" 0 "once"
-14x8
-21x8
+./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202308" "202408" 0 "once"
 ```
 
 run dbeaver
