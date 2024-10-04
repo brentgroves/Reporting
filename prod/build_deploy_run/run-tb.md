@@ -24,8 +24,9 @@ order by b.pcn
 
 Timeout issue with the "AccountActivitySummaryGetOpenPeriodRange"
 SOAP web service script.
-20240507:
+20240507
 open-period range was 202403 to 202405. It worked on 202403 and 202404 but failed on 202405 the active period. I shutdown all apps on my dev system and ran again with no error. There maybe an issue when more than 2 Plex SOAP web services are called one after another. Or there maybe some issue with running the scripts while memory resources are low.
+Had this issue again on 20241004. I ran TrialBalance-test.sh with VS Code open and all the scripts uncommented and it ran until the "AccountActivitySummaryGetOpenPeriodRange" script and then it failed. I then commented out all the scripts which ran successfully the first time and ran TrialBalance-test.sh again and it completed without any issues.
 
 ## **Format of file name**
 
@@ -33,6 +34,7 @@ open-period range was 202403 to 202405. It worked on 202403 and 202404 but faile
 
 "Heather Luttrell" <Heather.Luttrell@Linamar.com>
 
+TB-202309_to_202409_on_10-04_DM_HL
 TB-202308_to_202408_on_09-06_DM
 TB-202307_to_202407_on_08-08_DM
 TB-202306_to_202406_on_07-07_DM_HL
@@ -104,6 +106,7 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 pushd .
 cd ~/src/Reporting/prod/volume/PipeLine
 
+TB-202309_to_202409_on_10-04_DM_HL
 TB-202308_to_202408_on_09-06_DM
 TB-202407_to_202407_on_08-08_DM
 TB-202307_to_202407_on_08-08_DM
@@ -156,7 +159,7 @@ pip install pyodbc
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202308" "202408" 0 "once"
+./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202309" "202409" 0 "once"
 ```
 
 run dbeaver
@@ -230,10 +233,12 @@ Thank you Father for the peace that you have given me in troubles, pain, and sor
 
 Run TB report, trial_balance.rdl, from any Windows machine with the Power BI report builder installed. Use YYYYMM format for period range parameters.
 
-go to ~/src/secrets/namespaces/credentials
+go to **[credentials](../../../secrets/namespaces/default/credentials.yaml)**
 and use username2/password2 to authenticate.
 
 **Format of file name**
+TB-202309_to_202409_on_10-04_DM_HL
+
 TB-202308_to_202408_on_09-06_DM
 
 TB-202306_to_202406_on_07-07_DM_HL
