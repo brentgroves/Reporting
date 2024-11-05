@@ -1,6 +1,6 @@
 # Linamar change notes
 
-From Alb-utl Download the TRIALBALANCE report from plex and import it into the DW
+From Alb-utl1, 10.1.1.1 Download the TRIALBALANCE report from plex and import it into the DW
 Run Power BI report from Alb-utl4.
 
 ## Idea
@@ -34,6 +34,7 @@ Had this issue again on 20241004. I ran TrialBalance-test.sh with VS Code open a
 
 "Heather Luttrell" <Heather.Luttrell@Linamar.com>
 
+TB-202310_to_202410_on_11-04_DM_HL
 TB-202309_to_202409_on_10-04_DM_HL
 TB-202308_to_202408_on_09-06_DM
 TB-202307_to_202407_on_08-08_DM
@@ -86,7 +87,9 @@ ssh to dev system
 ./lastpass.sh
 ```
 
-**initailize the scripts for prod or dev
+## initailize the scripts for prod or dev
+
+```bash
 pushd ~/src/Reporting/prod/volume
 mysql_host=$2
 mysql_port=$3
@@ -95,10 +98,11 @@ mongo_host=$5
 mongo_port=$6
 mongo_db=$7
 
-if debugging the python script then
+# if debugging the python script then
 ./sed-volume.sh dev reports31 30031 1 reports32 30332 reports
-if running the TrialBalance.sh or TrialBalance-test.sh script manually then:  
+# if running the TrialBalance.sh or TrialBalance-test.sh script manually then:  
 ./sed-volume.sh prod reports31 30031 1 reports32 30332 reports
+```
 
 ## run trial balance scripts
 
@@ -106,6 +110,7 @@ if running the TrialBalance.sh or TrialBalance-test.sh script manually then:
 pushd .
 cd ~/src/Reporting/prod/volume/PipeLine
 
+TB-202310_to_202410_on_11-04_DM_HL
 TB-202309_to_202409_on_10-04_DM_HL
 TB-202308_to_202408_on_09-06_DM
 TB-202407_to_202407_on_08-08_DM
@@ -159,13 +164,15 @@ pip install pyodbc
 
 # If start_period_update = 1 the AccountingStartPeriodUpdate script will run
 
-./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202309" "202409" 0 "once"
+./TrialBalance-test.sh "TB" "bgroves@buschegroup.com" "202310" "202410" 0 "once"
 ```
 
-run dbeaver
+## run dbeaver
+
 open azure_account_period_balance_validate.sql and mysql_trial_balace_validation.sql
 follow steps
 
+```bash
 /*
 
 * Detected an error on 03/09/2023:
@@ -190,6 +197,7 @@ export end_period=$4
 export start_period_update=$5
 export frequency=$5
 ./TrialBalance-test.sh TB <bgroves@buschegroup.com> 202203 202303 0 once
+```
 
 ## Update MySQL Trialbalance table with Plex CSV
 
@@ -231,12 +239,13 @@ Thank you Father for the peace that you have given me in troubles, pain, and sor
 
 ## run TB report
 
-Run TB report, trial_balance.rdl, from any Windows machine with the Power BI report builder installed. Use YYYYMM format for period range parameters.
+Run TB report, trial_balance.rdl, from any Windows machine with the Power BI report builder installed - alb-utl4. Use YYYYMM format for period range parameters.
 
 go to **[credentials](../../../secrets/namespaces/default/credentials.yaml)**
 and use username2/password2 to authenticate.
 
 **Format of file name**
+TB-202310_to_202410_on_11-04_DM_HL
 TB-202309_to_202409_on_10-04_DM_HL
 
 TB-202308_to_202408_on_09-06_DM
