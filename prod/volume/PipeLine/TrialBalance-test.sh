@@ -277,8 +277,8 @@ line=""
 tm=""
 
 # # set pcn
-# pcn=123681
-# # # https://askubuntu.com/questions/1403837/how-do-i-use-openssl-1-1-1-in-ubuntu-22-04
+pcn=123681
+# # https://askubuntu.com/questions/1403837/how-do-i-use-openssl-1-1-1-in-ubuntu-22-04
 # if [[ $result -eq 0 ]]
 # then # if/then branch
 #   exec 6<>tm-msg
